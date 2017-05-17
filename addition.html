@@ -1,0 +1,255 @@
+<html lang="fr">
+  <head>
+    <title>addition binaire</title>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="css/jquery-ui.css" />
+  <link rel="stylesheet" href="css/neper.css" />
+  <script src="javascript/jquery-1.7.2.min.js"></script>
+<script src="javascript/coffee-script.min.js"></script>
+  <script src="javascript/jquery-ui.min.js"></script>
+  <script src="javascript/jquery.ui.touch-punch.min.js"></script>
+  </head>
+  <body>
+	  
+<div id="regle">
+	  <h1>Additionner avec l'abaque de Neper</h1>
+
+
+	<p>Exemple: On veut calculer 11+5; on pose 11 sur la ligne du haut et 5 sur la ligne du bas.</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pion">♟</li></td><td class="cadref"></td>
+			<td class="cadref"><li class="pion">♟</li></td><td class="cadref"><li class="pion">♟</li></td>
+			<td class="videf"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"><li class="pion">♟</li></td>
+			<td class="cadref"></td><td class="cadref"><li class="pion">♟</li></td>
+			<td class="videf"></td>
+		</tr>
+		<tr>
+			<td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td>
+		</tr>
+		<tr>
+			<td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+		</tr>
+	</table>
+<p></p>
+
+<p>Ensuite on amène dans les cases du bas tous les pions de la ligne du haut: Une averse de pions !</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="videf"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pion">♟</li></td><td class="cadref"><li class="pion">♟</li></td>
+			<td class="cadref"><li class="pion">♟</li></td><td class="cadref"><li class="pion">♟</li><li class="pion">♟</li></td>
+			<td class="videf"></td>
+		</tr>
+		<tr>
+			<td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td>
+		</tr>
+		<tr>
+			<td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+		</tr>
+	</table>
+<p></p>
+
+<p>L'addition est presque terminée: Il ne reste plus qu'à pratiquer les groupements-échanges 
+en commençant par la droite, où se trouvent deux pions, alors un pion chasse l'autre vers la gauche (sous le choc, 
+ils tournent tous les deux au bleu), et par réaction, il est expulsé définitivement hors de l'échiquer:
+</p>
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td><td class="cadref"></td><td class="cadref"></td><td class="cadref"></td>
+			<td class="videf"><li class="pp">♟</li></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pion">♟</li></td><td class="cadref"><li class="pion">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li><li class="pion">♟</li></td><td class="cadref"></td>
+			<td class="videf"></td>
+		</tr>
+		<tr>
+			<td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td>
+		</tr>
+		<tr>
+			<td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+		</tr>
+	</table>
+<p></p>
+<p>Mais du coup il y a un autre doublon de pions, et la bagarre recommence :</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td><td class="cadref"></td><td class="cadref"></td><td class="cadref"></td>
+			<td class="videf"><li class="pp">♟</li><li class="pp">♟</li></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pion">♟</li></td><td class="cadref"><li class="pion">♟</li><li class="pion">♟</li></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="videf"></td>
+		</tr>
+		<tr>
+			<td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td>
+		</tr>
+		<tr>
+			<td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+		</tr>
+	</table>
+<p></p>
+<p>Et ça recommence :</p>
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td><td class="cadref"></td><td class="cadref"></td><td class="cadref"></td>
+			<td class="videf"><li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pion">♟</li><li class="pion">♟</li></td><td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="videf"></td>
+		</tr>
+		<tr>
+			<td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td>
+		</tr>
+		<tr>
+			<td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+		</tr>
+	</table>
+<p></p>
+
+<p>Et encore une fois:</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td><td class="cadref"></td><td class="cadref"></td><td class="cadref"></td>
+			<td class="videf"><li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li></td>
+		</tr>
+		<tr>
+			<td class="cadref"><li class="pion">♟</li></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="videf"></td>
+		</tr>
+		<tr>
+			<td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td><td class="videf"></td>
+		</tr>
+		<tr>
+			<td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+		</tr>
+	</table>
+<p></p>
+
+<p>Le nombre représenté en binaire (16 puisqu'il n'y a de pion que dans la case 16) est la somme de 5 et 11.</p>
+
+<h4>Soustraire</h4>
+
+<p>Une astuce dûe à Blaise Pascal permet de soustraire aussi. Par exemple pour calculer 11-5, on représente 5 en négatif 
+(des pions partout sur la dernière ligne <em>sauf</em> en face du 4 et du 1). Puis on effectue 
+l'addition des nombres 11 et 250 alors représentés. Après avoir géré les doublons (le dernier pion 
+éjecté ne va pas dans la case plus à gauche, puisqu'il n'y a <em>pas</em> de case plus à gauche), 
+on ajoute un dernier pon et on a la différence 11-5=7.</p>
+
+</div>
+
+<div id="res_pas_bouger">
+<h4 id="sor3">La ligne du haut représente le nombre 0</h4>
+<h4 id="sor2">La ligne du bas représente le nombre 0</h4>
+
+
+</div>	  
+	  
+<table id="echiquier">
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+	</tr>
+	<tr>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+	</tr>
+	<tr>
+		<td>256</td>
+		<td>128</td><td>64</td><td>32</td><td>16</td>
+		<td>8</td><td>4</td><td>2</td><td>1</td>
+	</tr>
+<tr>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+</tr>
+</table>
+
+	  
+<script type="text/coffeescript">
+vh = (nligne) ->
+	v = 0
+	p = 256
+	$("#echiquier tbody > tr:nth-child(#{nligne+1}) > td ").each ->
+		v += p if $(this).text() == "♟" and p>= 1
+		p /= 2
+	v
+
+
+$ ->
+
+	$(".cadre").sortable
+		connectWith: ".cadre"
+		stop: (evt,ui) ->
+			nl = ui.item.parent().parent().index()	#ordonnée
+			nc = ui.item.parent().index()			#abscisse
+			$("#sor2").text "La ligne du bas représente le nombre #{vh(1)}"
+			$("#sor3").text "La ligne du haut représente le nombre #{vh(0)}"
+
+
+	$("#regle, #res").draggable()
+
+</script>
+
+
+</body>
+</html>
