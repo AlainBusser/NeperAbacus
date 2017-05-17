@@ -1,0 +1,87 @@
+<html lang="fr">
+  <head>
+    <title>échiquier binaire</title>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="css/jquery-ui.css" />
+  <link rel="stylesheet" href="css/neper.css" />
+  <script src="javascript/jquery-1.7.2.min.js"></script>
+<script src="javascript/coffee-script.min.js"></script>
+  <script src="javascript/jquery-ui.min.js"></script>
+  <script src="javascript/jquery.ui.touch-punch.min.js"></script>
+  </head>
+  <body>
+
+	  <h1>Échiquier binaire</h1>
+
+<p>Lorsqu'il est dans son lieu d'origine ou dans la colonne marquée <em>1</em>, 
+chaque pion pèse 1 gramme. Mais le champ de gravité n'est pas constant, et lorsqu'un pion 
+bouge d'une case vers la gauche, son poids double. Au contraire lorsqu'il 
+bouge d'une case vers la droite, son poids diminue de moitié.
+</p>
+<p>Le motif en binaire formé par les pions, représente un nombre ... en binaire ! Ce nombre 
+est la masse totale dans la ligne.</p>
+	  
+
+<div id="res_pas_bouger">
+<h4 id="sor2">Le nombre représenté est 0</h4>
+
+
+</div>	  
+	  
+<table id="echiquier">
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+	</tr>
+	<tr>
+		<td class="vide" style="max-width: 1em;">128</td>
+		<td class="vide">64</td>
+		<td class="vide">32</td>
+		<td class="vide">16</td>
+		<td class="vide">8</td>
+		<td class="vide">4</td>
+		<td class="vide">2</td>
+		<td class="vide">1</td>
+	</tr>
+<tr>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+</tr>
+</table>
+
+	  
+<script type="text/coffeescript">
+vh = (nligne) ->
+	v = 0
+	p = 128
+	$("#echiquier tbody > tr:nth-child(#{nligne+1}) > td ").each ->
+		v += p if $(this).text() == "♟" and p>= 1
+		p /= 2
+	v
+
+
+$ ->
+
+	$(".cadre").sortable
+		connectWith: ".cadre"
+		stop: (evt,ui) ->
+			nl = ui.item.parent().parent().index()	#ordonnée
+			nc = ui.item.parent().index()			#abscisse
+			$("#sor2").text "Le nombre représenté est #{vh(0)}"
+
+
+
+</script>
+
+
+</body>
+</html>
