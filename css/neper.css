@@ -6,7 +6,7 @@ td {
 	min-width: 1.5em; 
 	height: 1.5em; 
 	min-height: 1.5em;
-	text-shadow: 0.2em 0.1em 0.05em rgba(0,0,0,0.3); 
+	text-shadow: 0.1em 0.05em 0.1em rgba(0,0,0,0.3); 
 	}
 	
 .cadre, .cadref { 
@@ -69,5 +69,5 @@ li {
 
 h1, h4 {
 	color: darkred;
-	text-shadow: 0.2em 0.1em 0.05em rgba(0,0,0,0.3);
+	text-shadow: 0.1em 0.05em 0.1em rgba(0,0,0,0.3);
 }
