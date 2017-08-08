@@ -9,6 +9,7 @@ td {
 	text-shadow: 0.1em 0.05em 0.1em rgba(0,0,0,0.3); 
 	}
 	
+	
 .cadre, .cadref { 
 	font-size: 200%; 
 	border: 1px solid brown; 
@@ -67,7 +68,7 @@ li {
 	box-shadow: 8px 5px 6px rgba(127,127,127,0.4); 
 	}
 
-h1, h4 {
+h1, h2, h3, h4 {
 	color: darkred;
 	text-shadow: 0.1em 0.05em 0.1em rgba(0,0,0,0.3);
 }

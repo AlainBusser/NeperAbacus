@@ -1,0 +1,459 @@
+<html lang="fr">
+  <head>
+    <title>modulo 31</title>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/jquery-ui.css" />
+  <link rel="stylesheet" href="../css/neper.css" />
+  <script src="../javascript/jquery-1.7.2.min.js"></script>
+<script src="../javascript/coffee-script.min.js"></script>
+  <script src="../javascript/jquery-ui.min.js"></script>
+  <script src="../javascript/jquery.ui.touch-punch.min.js"></script>
+  </head>
+  <body>
+	  
+<p>
+	  
+<ul>
+	<li>Pour <a href="../index.html">revenir au départ</a></li>
+	<li>Pour <a href="../html/modulo127.html">passer à la division euclidienne par 127</a></li>
+	<li>Pour <a href="../html/modulo7.html">revenir à la division euclidienne par 7</a></li>
+</ul>
+
+<p>Pour tester la primalité de 2<sup>5</sup>-1 par l'algorithme 
+de Lucas-Lehmer, effectuer 5-1=4 fois les opérations suivantes:
+<ul>
+	<li>élever le nombre courant au carré;</li>
+	<li>Soustraire 2 au résultat.</li>
+	Le nombre de départ est 4.
+</ul>
+</p>
+
+</p>
+	  
+<div id="regle">
+	  <h1>primalité de 2<sup>5</sup>-1=31</h1>
+
+<p>Pour calculer 4<sup>2</sup>, on dispose les pions ainsi :</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+	</table>
+	<p>Après l'averse à 45°, le pion est encore du côté gauche 
+	(il n'y a pas eu de dépassement) :</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+	</table>
+	<p>Mais on ne peut pas soustraire 2 parce que la case "2" 
+	est vide (il n'y a pas de pion à enlever). On va donc successivement
+	<ul>
+		<li>remplacer le pion de 16g par deux pions de 8g;</li>
+		<li>remplacer un des deux pions de 8g par deux pions de 4g;</li>
+		<li>remplacer un des deux pions de 4g par deux pions de 2g;</li>
+		<li>enlever un des deux pions de 2g.</li>
+	</ul>
+	On obtient alors le nombre suivant qui est 14 :
+	</p>
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"></td>
+		</tr>
+	</table>
+<p>C'est ce nombre qu'on va élever au carré à l'étape suivante :</p>
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+	</table>
+
+<p>Cette fois-ci, il y a des pions qui, en descendant à 45°, 
+sont reportés sur le côté droit de l'échiquier, et les 
+groupements-échanges vident nettement l'échiquier puisqu'au bout 
+du compte il ne reste qu'un seul pion :</p>
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+	</table>
+
+<p>Pour élever ce nombre au carré, on le met ici :</p>
+
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+	</table>
+
+<p>Il n'y a donc qu'un seul pion à déplacer à 45°, mais il revient 
+par la droite et aboutit ici:</p>
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"></td>
+		</tr>
+	</table>
+
+<p>Pour effectuer la soustraction de 2, il suffit d'enlever 
+ce pion en position 2, et l'échiquier est maintenant vide: On 
+a fini !</p>
+
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+		</tr>
+	</table>
+
+
+<p>On a donc calculé successivement les nombres
+<ol>
+	<li>4</li>
+	<li>14</li>
+	<li>8</li>
+	<li>0</li>
+</ol>
+et comme il a fallu moins de 5 itérations pour que l'échiquier soit vide, 
+on a la preuve que 2<sup>5</sup>-1=31 est premier.
+</p>
+<h3>Remarque</h3>
+<p>Pour tester la primalité de 31, il y a plus court que 
+l'algorithme de Lucas-Lehmer: Comme 31&lt;36, les seuls 
+diviseurs potentiels de 31 à tester sont 2, 3 et 5:
+<ul>
+	<li>31 se termine par 1 et n'est donc divisible ni par 2, ni par 5;</li>
+	<li>3+1=4 donc 31 n'est pas divisible par 3 non plus.</li>
+</ul>
+Par contre, pour quelqu'un qui ne connaîtrait que le binaire, 
+les critères de divisibilité par <strike>11</strike> 3 et par 
+<strike>111</strike> 5 sont plus compliqués qu'en base 10.
+</p>
+</div>
+
+<div id="res">
+<h4 id="sor3"></h4>
+<h4 id="sor2"></h4>
+
+<h4 id="sor1"></h4>
+</div>	  
+	  
+<table id="echiquier">
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>16</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>8</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>4</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>2</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>1</td>	
+	</tr>
+	<tr>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>8</td><td>4</td><td>2</td><td>1</td>
+	</tr>
+<tr>
+<td class='vide poser'>
+	<li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li>
+	<li class="pp">♟</li><li class="pp">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li>
+</td>
+</tr>
+</table>
+
+	  
+<script type="text/coffeescript">
+vh = (nligne) ->
+	v = 0
+	p = 16
+	$("#echiquier tbody > tr:nth-child(#{nligne+1}) > td ").each ->
+		v += p if $(this).text() == "♟" and p>= 1
+		p /= 2
+	v
+
+vv = (ncolonne) ->
+	v = 0
+	p = 16
+	for n in [0..4]
+		cell = $("#echiquier tbody > tr:nth-child(#{n+1}) > td:nth-child(#{ncolonne+1})")
+		v += p if cell.text() == "♟" and p>= 1
+		p /= 2
+	v
+	
+
+$ ->
+
+	$(".vide").sortable
+		connectWith: ".vide"
+		stop: (evt,ui) ->
+			nl = ui.item.parent().parent().index()	#ordonnée
+			nc = ui.item.parent().index()			#abscisse
+			$("#sor2").text "La colonne bleue représente le nombre #{vv(8)}"
+			$("#sor3").text "La ligne bleue représente le nombre #{vh(8)}"
+
+	$(".cadre").sortable
+		connectWith: ".cadre"
+		stop: (evt,ui) ->
+			nl = ui.item.parent().parent().index()	#ordonnée
+			nc = ui.item.parent().index()			#abscisse
+
+	$(".cadre").hover ->
+		$("#sor1").text "La ligne survolée par la souris représente le nombre #{vh($(this).parent().index())}"
+
+	$("#regle, #res").draggable()
+
+</script>
+
+
+</body>
+</html>

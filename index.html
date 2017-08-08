@@ -29,45 +29,55 @@ tout en bas ou tout à droite, 256 tout en haut ou tout à gauche).
 
 </ul>
 
-<table>
-	<tr>
-		<td class="cadre"></td><td class="cadre"></td><td class="cadre"></td><td class="cadre"><li class="pion">♟</li></td>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"></td><td class="cadre"></td><td class="cadre"></td>
-	</tr>
-	<tr>
-		<td class="cadre"></td><td class="cadre"></td><td class="cadre"></td><td class="cadre"><li class="pion">♟</li></td>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"></td><td class="cadre"></td><td class="cadre"></td>
-	</tr>
-	<tr>
-		<td class="cadre"></td><td class="cadre"></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"></td><td class="cadre"></td>
-	</tr>
-	<tr>
-		<td class="cadre"></td><td class="cadre"></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"></td><td class="cadre"></td>
-	</tr>
-	<tr>
-		<td class="cadre"></td><td class="cadre"></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"></td><td class="cadre"></td>
-	</tr>
-	<tr>
-		<td class="cadre"></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"></td>
-	</tr>
-	<tr>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td>
-	</tr>
-	<tr>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td>
-		<td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td><td class="cadre"><li class="pion">♟</li></td>
-	</tr>
-</table>
-
+<p></p>
 
 <footer>Les coins de l'abaque sont marqués par des signes du zodiaque: ♊ gémeaux, 
 ♋ cancer, ♉ taureau et ♈ bélier. Neper s'intéressait à l'astronomie et c'est cet 
 intérêt qui l'a mené à chercher des moyens de calcul efficaces.</footer>
+
+<h2>De l'abaque à l'écriture du binaire</h2>
+
+<p>En écrivant "1" pour chaque pion et "0" pour chaque case vide, 
+on obtient l'écriture binaire du nombre. Par exemple, 42 s'écrit 
+101010 parce qu'il y a trois pions pour représenter ce nombre 
+sur l'échiquier de Neper (en positions respectives 32, 8 et 2). 
+Neper n'a jamais semble-t-il pensé à écrire ainsi les nombres.</p>
+<p>Mais environ un siècle plus tard, Geoffroy Guillaume Leibniz 
+propose le calcul binaire, et c'est d'ailleurs de lui que vient 
+l'idée de représenter les chiffres binaires par des poids :</p>
+	  <img src="img/binaire1.png">Comment Leibniz propose de représenter les nombres binaires</img>
+<code>Cette propriété sert aux essayeurs pour peser toutes sortes 
+de masses avec peu de poids, et pourrait servir dans les 
+monnaies pour donner plusieurs valeurs avec peu de pièces.</code>
+<p>Contrairement à Neper, Leibniz ne calculait pas à l'aide d'un 
+abaque (il avait lui-même construit une machine à multiplier) 
+mais posait les calculs par écrit :</p>
+	  <img src="img/leibniz.png">Remarquer le décalage dans la multiplication</img>
+<p>On constate que pour la multiplication, les calculs ne sont pas 
+posés en carré comme dans l'abaque de Neper, mais que le carré 
+a été déformé en parallélogramme, avec écritures décalées comme 
+dans les multiplications effectuées à l'école primaire.</p>
+
+<h2>De Neper à Lucas puis à Lehmer</h2>
+
+<p>Pour faire de l'arithmétique modulo une puissance de deux, il suffit 
+d'enlever les pions le plus à gauche (par exemple, modulo 8, 
+on ne garde que les pions des 3 dernières colonnes parce que 
+8=2<sup>3</sup>). Mais pour faire de l'arithmétique modulo 1 de 
+moins qu'une puissance de 2 (par exemple 7), c'est assez facile aussi: 
+On reporte les pions à droite, comme si la colonne 4 était en réalité 
+la colonne 1. C'est ce qui a permis à Édouard Lucas, vers la 
+fin du XIXe siècle, de faire des calculs modulo des nombres de 
+Mersenne, et c'est avec un abaque de Neper qu'il a détenu 
+pendant plusieurs décennies le record du monde du nombre 
+premier le plus grand (de 1876 à 1952)</p>
+
+<ul>
+	<li><a href="html/modulo7.html">Principe de la multiplication modulo 7</a></li>
+	<li><a href="html/modulo31.html">Preuve de la primalité de 31 avec l'abaque 5×5</a></li>
+	<li><a href="html/modulo127.html">Preuve de la primalité de 127 par l'algorithme de Lucas-Lehmer</a></li>
+	<li><a href="html/lucaslehmer.html">Primalité de 2<sup>127</sup>-1 et d'autres grands nombres de Mersenne</a></li>
+</ul>
 
 </body>
 </html>

@@ -1,0 +1,275 @@
+<html lang="fr">
+  <head>
+    <title>modulo 127</title>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/jquery-ui.css" />
+  <link rel="stylesheet" href="../css/neper.css" />
+  <script src="../javascript/jquery-1.7.2.min.js"></script>
+<script src="../javascript/coffee-script.min.js"></script>
+  <script src="../javascript/jquery-ui.min.js"></script>
+  <script src="../javascript/jquery.ui.touch-punch.min.js"></script>
+  </head>
+  <body>
+	  
+<ul>
+	<li>Pour <a href="../index.html">revenir au départ</a></li>
+	<li>Pour <a href="../html/lucaslehmer.html">passer à des nombres plus grands</a></li>
+	<li>Pour <a href="../html/modulo7.html">revoir le principe de l'abaque de Lucas</a></li>
+</ul>
+	  
+<div id="regle">
+	  <h1>primalité de 2<sup>7</sup>-1=127</h1>
+
+<p>Les étapes successives sont représentées ici, ligne après ligne :</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="videf">1</td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"></td>
+			<td class="videf">2</td>
+		</tr>
+		<tr>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="videf">3</td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td>
+			<td class="videf">4</td>
+		</tr>
+		<tr>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td><td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="videf">5</td>
+		</tr>
+		<tr>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td><td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="videf">6</td>
+		</tr>
+	</table>
+<p>Ce sont les nombres
+<ol>
+	<li>4</li>
+	<li>14</li>
+	<li>67</li>
+	<li>42 (si, si, 42)</li>
+	<li>111</li>
+	<li>0</li>
+</ol>
+et comme il a fallu moins de 7 itérations pour que l'échiquier soit vide, 
+on a la preuve que 2<sup>7</sup>-1=127 est premier.
+</p>
+<h3>Remarque</h3>
+<p>Pour tester la primalité de 127, il y a plus court que 
+l'algorithme de Lucas-Lehmer: Comme 127&lt;144, les seuls 
+diviseurs potentiels de 127 à tester sont 2, 3, 5, 7 et 11:
+<ul>
+	<li>127 se termine par 7 et n'est donc divisible ni par 2, ni par 5;</li>
+	<li>1+2+7=10 donc 127 n'est pas divisible par 3 non plus;</li>
+	<li>7×20=140, donc si 127 était divisible par 7, 140-127=13 le serait aussi; on voit que ce n'est pas le cas;</li>
+	<li>127=121-6 et 121 est dans la table de 11, donc 127 n'y est pas.</li>
+</ul>
+Par contre, pour des exposants plus grands que 7, l'algorithme de 
+Lucas-Lehmer devient intéressant.
+</p>
+</div>
+
+<div id="res">
+<h4 id="sor3"></h4>
+<h4 id="sor2"></h4>
+
+<h4 id="sor1"></h4>
+</div>	  
+	  
+<table id="echiquier">
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>64</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>32</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>16</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>8</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>4</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>2</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>		
+		<td class="cadre"></td>	
+		<td class="vide"></td>
+		<td>1</td>	
+	</tr>
+	<tr>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+		<td class="vide"></td>
+	</tr>
+	<tr>
+		<td>64</td><td>32</td><td>16</td>
+		<td>8</td><td>4</td><td>2</td><td>1</td>
+	</tr>
+<tr>
+<td class='vide' id='poser'>
+	<li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li>
+	<li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+</tr>
+</table>
+
+	  
+<script type="text/coffeescript">
+vh = (nligne) ->
+	v = 0
+	p = 64
+	$("#echiquier tbody > tr:nth-child(#{nligne+1}) > td ").each ->
+		v += p if $(this).text() == "♟" and p>= 1
+		p /= 2
+	v
+
+vv = (ncolonne) ->
+	v = 0
+	p = 64
+	for n in [0..6]
+		cell = $("#echiquier tbody > tr:nth-child(#{n+1}) > td:nth-child(#{ncolonne+1})")
+		v += p if cell.text() == "♟" and p>= 1
+		p /= 2
+	v
+	
+
+$ ->
+
+	$(".vide").sortable
+		connectWith: ".vide"
+		stop: (evt,ui) ->
+			nl = ui.item.parent().parent().index()	#ordonnée
+			nc = ui.item.parent().index()			#abscisse
+			$("#sor2").text "La colonne bleue représente le nombre #{vv(8)}"
+			$("#sor3").text "La ligne bleue représente le nombre #{vh(8)}"
+
+	$(".cadre").sortable
+		connectWith: ".cadre"
+		stop: (evt,ui) ->
+			nl = ui.item.parent().parent().index()	#ordonnée
+			nc = ui.item.parent().index()			#abscisse
+
+	$(".cadre").hover ->
+		$("#sor1").text "La ligne survolée par la souris représente le nombre #{vh($(this).parent().index())}"
+
+	$("#regle, #res").draggable()
+
+</script>
+
+
+</body>
+</html>

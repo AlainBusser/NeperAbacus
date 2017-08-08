@@ -1,0 +1,334 @@
+<html lang="fr">
+  <head>
+    <title>modulo 7</title>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/jquery-ui.css" />
+  <link rel="stylesheet" href="../css/neper.css" />
+  <script src="../javascript/jquery-1.7.2.min.js"></script>
+<script src="../javascript/coffee-script.min.js"></script>
+  <script src="../javascript/jquery-ui.min.js"></script>
+  <script src="../javascript/jquery.ui.touch-punch.min.js"></script>
+  </head>
+  <body>
+	  
+<p>
+	  
+<ul>
+	<li>Pour <a href="../index.html">revenir au départ</a></li>
+	<li>Pour <a href="../html/modulo31.html">passer à la division euclidienne par 31</a></li>
+	<li>Pour <a href="../html/multiplication.html">revenir à multiplication sans division euclidienne</a></li>
+</ul>
+
+</p>
+
+<p>Vers la fin du XIXe siècle, Édouard Lucas a trouvé le moyen 
+de faire du calcul modulo 7 avec l'échiquier de Neper. Modulo 7, 
+ça veut dire qu'une fois la multiplication effectuée, on divise 
+par 7 (division euclidienne) et on ne garde que le reste. Ce reste 
+est nul si et seulement si le produit est divisible par 7.
+</p>
+
+</p>
+	  
+<div id="regle">
+	  <h1>Calculs modulo 7</h1>
+
+<p>Pour calculer 3×2, on dispose les pions ainsi :</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td>
+		</tr>
+	</table>
+
+<p>L'averse à 45° de Neper ne fait bouger que le pion du 
+haut puisque celui du bas est déjà en bas. On obtient alors 
+ce produit :</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td>
+		</tr>
+	</table>
+
+<p>Effectivement, le nombre représenté en bas est 4+2+0=6 
+et on a bien 2×3=6. En fait, en effectuant la division euclidienne 
+de 6 par 7, on a un quotient nul et un reste de 6: L'égalité 
+2×3=6 reste vraie modulo 7.</p>
+
+<p>Mais si on veut effectuer 2×4, on a un problème de place 
+(8 est plus grand que 7, et la division euclidienne de 8 par 7 
+donne un reste de 1, donc modulo 7, 2×4=1):</p>
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+	</table>
+
+<p>Le pion ne peut pas aller à 45° vers la gauche parce que ça le ferait 
+sortie de l'échiquier. Dans ce cas, Édouard Lucas propose cette règle :</p>
+
+<h2>Lorsqu'un pion sort de l'échiquier par la gauche, il revient par la droite</h2>
+
+<p>Le produit 2×4 devient alors </p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+		</tr>
+	</table>
+
+<p>Effectivement, modulo 7, 2×4 vaut 1 parce que 8=7+1. Si 
+on veut maintenant calculer 3×3 modulo 7 :</p>
+
+	<table>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+		</tr>
+	</table>
+
+<p>Après l'averse à 45°, aucun pion n'est sorti par la gauche. 
+En effet le pion le plus à gauche est en position "4". Mais 
+il y a deux pions de 2g, et lorsqu'on veut les remplacer par 
+un pion de 4g, on aboutit à 2 pions de 4g, et lorsqu'on veut 
+remplacer à leur tour ces deux pions de 4g, par un seul, ce n'est 
+pas de 8g puisqu'il n'y a pas de case à 8g: Ce pion sort par 
+la gauche (même si ce n'est pas à 45°), et revient par la droite. 
+Alors il reste deux pions de 1g, que l'on va remplacer par un pion 
+de 2g:</p>
+
+
+	<table>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+			<td class="cadref"></td>
+		</tr>
+		<tr>
+			<td class="cadref"></td>
+			<td class="cadref"><li class="pp">♟</li></td>
+			<td class="cadref"></td>
+		</tr>
+	</table>
+
+<p>Vérification sans le binaire: 3×3=9, et 9=7+2: La division 
+euclidienne de 9 par 7 donne un reste de 2. Modulo 7, on a 
+donc bien 3×3=9.</p>
+
+
+</div>
+
+	  
+<table id="echiquier" style="font-size: 200%">
+	<tr>
+		<td class="cadre"></td><td class="cadre"></td><td class="cadre"></td>		
+		<td class="vide"></td>
+		<td>4</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td><td class="cadre"></td><td class="cadre"></td>		
+		<td class="vide"></td>
+		<td>2</td>	
+	</tr>
+	<tr>
+		<td class="cadre"></td><td class="cadre"></td><td class="cadre"></td>		
+		<td class="vide"></td>
+		<td>1</td>	
+	</tr>
+	<tr>
+		<td class="vide"></td><td class="vide"></td><td class="vide"></td>
+	</tr>
+	<tr>
+		<td>4</td><td>2</td><td>1</td>
+	</tr>
+<tr>
+<td class='vide poser'>
+	<li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li>
+	<li class="pp">♟</li><li class="pp">♟</li><li class="pp">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+<td class='cadre grenier'>
+	<li class="pion">♟</li><li class="pion">♟</li><li class="pion">♟</li>
+</td>
+</tr>
+</table>
+
+<h2>Table de multiplication modulo 7</h2>
+
+<table border=1>
+	<tr><td>×</td><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+	<tr><th>0</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	<tr><th>1</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+	<tr><th>2</th><td>0</td><td>2</td><td>4</td><td>6</td><td>1</td><td>3</td><td>5</td></tr>
+	<tr><th>3</th><td>0</td><td>3</td><td>6</td><td>2</td><td>5</td><td>1</td><td>4</td></tr>
+	<tr><th>4</th><td>0</td><td>4</td><td>1</td><td>5</td><td>2</td><td>6</td><td>3</td></tr>
+	<tr><th>5</th><td>0</td><td>5</td><td>3</td><td>1</td><td>6</td><td>4</td><td>2</td></tr>
+	<tr><th>6</th><td>0</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
+</table>
+
+
+
+<p>On peut se servir de cette table pour s'exercer (effectuer 
+les multiplications modulo 7) sur l'échiquier, puis vérifier 
+le résultat dans le tableau). En particulier, pour la suite, 
+s'exercer à calculer des carrés. Et plus particulièrement, une 
+opération importante pour Édouard Lucas est la soustraction 
+de 2 à un carré.</p>
+
+<table border=1>
+	<tr><td>x</td><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+	<tr><th>x²-2</th><td>5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>2</td><td>6</td></tr>
+</table>
+
+<div id="res">
+<h4 id="sor3"></h4>
+<h4 id="sor2"></h4>
+
+<h4 id="sor1"></h4>
+</div>	  
+
+
+
+<p>Le fait qu'en partant de 4, on aboutisse à 0 (échiquier 
+vide) illustre l'algorithme de Lucas-Lehmer pour tester la 
+primalité d'un nombre de Mersenne (du type 2<sup>p</sup>-1 où p 
+est premier) comme ici, 7=2<sup>3</sup>-1. Voici comment fonctionne 
+l'algorithme : </p>
+<p>On prend le nombre 4 comme nombre de départ; puis on répète 
+p-1 fois au maximum l'opération consistant à
+<ol>
+	<li>élever le nombre au carré modulo 2<sup>p</sup>-1;</li>
+	<li>soustraire 2 au résultat.</li>
+</ol>
+Si, à un moment, l'échiquier est vide, c'est que 2<sup>p</sup>-1 
+est premier.
+</p>
+<p>Ici dès la première itération, l'échiquier est vide donc 7 
+est bien un nombre premier. L'algorithme est plus efficace que 
+le recherche de diviseurs potentiels de 2<sup>p</sup>-1 lorsque 
+p devient grand (ici p=3 n'est pas vraiment grand). Voir les cas où 
+<ul>
+	<li><a href="../html/modulo31.html">p=5 donc pour tester la primalité de 31</a></li>
+	<li><a href="../html/modulo127.html">p=7 donc pour tester la primalité de 127</a></li>
+	<li><a href="../html/lucaslehmer.html">d'autres valeurs de p notamment p=127</a></li>
+</ul>
+</p>
+
+	  
+<script type="text/coffeescript">
+vh = (nligne) ->
+	v = 0
+	p = 4
+	$("#echiquier tbody > tr:nth-child(#{nligne+1}) > td ").each ->
+		v += p if $(this).text() == "♟" and p>= 1
+		p /= 2
+	v
+
+vv = (ncolonne) ->
+	v = 0
+	p = 4
+	for n in [0..2]
+		cell = $("#echiquier tbody > tr:nth-child(#{n+1}) > td:nth-child(#{ncolonne+1})")
+		v += p if cell.text() == "♟" and p>= 1
+		p /= 2
+	v
+	
+
+$ ->
+
+	$(".vide").sortable
+		connectWith: ".vide"
+		stop: (evt,ui) ->
+			nl = ui.item.parent().parent().index()	#ordonnée
+			nc = ui.item.parent().index()			#abscisse
+			$("#sor2").text "La colonne bleue représente le nombre #{vv(8)}"
+			$("#sor3").text "La ligne bleue représente le nombre #{vh(8)}"
+
+	$(".cadre").sortable
+		connectWith: ".cadre"
+		stop: (evt,ui) ->
+			nl = ui.item.parent().parent().index()	#ordonnée
+			nc = ui.item.parent().index()			#abscisse
+
+	$(".cadre").hover ->
+		$("#sor1").text "La ligne survolée par la souris représente le nombre #{vh($(this).parent().index())}"
+
+	$("#regle, #res").draggable()
+
+</script>
+
+
+</body>
+</html>
