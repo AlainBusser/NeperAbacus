@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Valeurs des cases</title>
+<meta charset="utf-8">
+<style>
+table{
+    background: lightyellow;
+    border-spacing: 0;
+    border: 5px outset orange;
+    box-shadow: 5px 2px 8px lightgray;
+}
+td{
+    border: 1px solid black;
+    font-size: 12px;
+}
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+}
+input[type="checkbox"]{
+    height: 16px;
+    width: 16px;
+}
+input[type="checkbox"]:checked{
+    border-radius: 50%;
+    background: radial-gradient(at 30% 40%, orange, brown);
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<h1>Abaque de Neper</h1>
+<form onchange="maj()">
+<table>
+<tr>
+<td><input type="checkbox" class="v262144"></td>
+<td><input type="checkbox" class="v131072"></td>
+<td><input type="checkbox" class="v65536"></td>
+<td><input type="checkbox" class="v32768"></td>
+<td><input type="checkbox" class="v16384"></td>
+<td><input type="checkbox" class="v8192"></td>
+<td><input type="checkbox" class="v4096"></td>
+<td><input type="checkbox" class="v2048"></td>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td>512</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v131072"></td>
+<td><input type="checkbox" class="v65536"></td>
+<td><input type="checkbox" class="v32768"></td>
+<td><input type="checkbox" class="v16384"></td>
+<td><input type="checkbox" class="v8192"></td>
+<td><input type="checkbox" class="v4096"></td>
+<td><input type="checkbox" class="v2048"></td>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td>256</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v65536"></td>
+<td><input type="checkbox" class="v32768"></td>
+<td><input type="checkbox" class="v16384"></td>
+<td><input type="checkbox" class="v8192"></td>
+<td><input type="checkbox" class="v4096"></td>
+<td><input type="checkbox" class="v2048"></td>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td><input type="checkbox" class="v128"></td>
+<td>128</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v32768"></td>
+<td><input type="checkbox" class="v16384"></td>
+<td><input type="checkbox" class="v8192"></td>
+<td><input type="checkbox" class="v4096"></td>
+<td><input type="checkbox" class="v2048"></td>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td><input type="checkbox" class="v128"></td>
+<td><input type="checkbox" class="v64"></td>
+<td>64</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v16384"></td>
+<td><input type="checkbox" class="v8192"></td>
+<td><input type="checkbox" class="v4096"></td>
+<td><input type="checkbox" class="v2048"></td>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td><input type="checkbox" class="v128"></td>
+<td><input type="checkbox" class="v64"></td>
+<td><input type="checkbox" class="v32"></td>
+<td>32</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v8192"></td>
+<td><input type="checkbox" class="v4096"></td>
+<td><input type="checkbox" class="v2048"></td>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td><input type="checkbox" class="v128"></td>
+<td><input type="checkbox" class="v64"></td>
+<td><input type="checkbox" class="v32"></td>
+<td><input type="checkbox" class="v16"></td>
+<td>16</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v4096"></td>
+<td><input type="checkbox" class="v2048"></td>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td><input type="checkbox" class="v128"></td>
+<td><input type="checkbox" class="v64"></td>
+<td><input type="checkbox" class="v32"></td>
+<td><input type="checkbox" class="v16"></td>
+<td><input type="checkbox" class="v8"></td>
+<td>8</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v2048"></td>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td><input type="checkbox" class="v128"></td>
+<td><input type="checkbox" class="v64"></td>
+<td><input type="checkbox" class="v32"></td>
+<td><input type="checkbox" class="v16"></td>
+<td><input type="checkbox" class="v8"></td>
+<td><input type="checkbox" class="v4"></td>
+<td>4</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v1024"></td>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td><input type="checkbox" class="v128"></td>
+<td><input type="checkbox" class="v64"></td>
+<td><input type="checkbox" class="v32"></td>
+<td><input type="checkbox" class="v16"></td>
+<td><input type="checkbox" class="v8"></td>
+<td><input type="checkbox" class="v4"></td>
+<td><input type="checkbox" class="v2"></td>
+<td>2</td>
+</tr>
+<tr>
+<td><input type="checkbox" class="v512"></td>
+<td><input type="checkbox" class="v256"></td>
+<td><input type="checkbox" class="v128"></td>
+<td><input type="checkbox" class="v64"></td>
+<td><input type="checkbox" class="v32"></td>
+<td><input type="checkbox" class="v16"></td>
+<td><input type="checkbox" class="v8"></td>
+<td><input type="checkbox" class="v4"></td>
+<td><input type="checkbox" class="v2"></td>
+<td><input type="checkbox" class="v1"></td>
+<td>1</td>
+</tr>
+<tr><td>512</td><td>256</td><td>128</td><td>64</td>
+<td>32</td><td>16</td><td>8</td><td>4</td><td>2</td>
+<td>1</td><td></td></tr>
+</table>
+</form>
+<p>La valeur totale des jetons est <code id="valeur">0</code>.</p>
+<script>
+clics = 0
+function maj(){
+    clics += 1
+    if (clics>=20) {document.getElementById("sesame").hidden = false}
+    let total = 0
+    for (p=1; p<=262144; p*=2) {
+        for (e of document.getElementsByClassName("v"+p)) {if (e.checked) { total += p}}
+    }
+document.getElementById("valeur").innerHTML = total
+}
+</script>
+<p id="sesame"><a href="abaqueMarges.html">Poser aussi des jetons dans les marges</a></p>
+<script>
+document.getElementById("sesame").hidden =true
+</script>
+
+</body>
+</html>
