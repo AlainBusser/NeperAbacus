@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Carrés</title>
+<meta charset="utf-8">
+<style>
+table{
+    background: lightyellow;
+    border-spacing: 0;
+    border: 5px outset orange;
+    box-shadow: 5px 2px 8px lightgray;
+}
+td{
+    border: 1px solid black;
+    font-size: 12px;
+}
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+}
+input[type="checkbox"]{
+    height: 16px;
+    width: 16px;
+}
+input[type="checkbox"]:checked{
+    border-radius: 50%;
+    background: radial-gradient(at 30% 40%, orange, brown);
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<h1>Abaque de Neper</h1>
+<form onchange="maj()">
+<input type="number" id="racine" min="0" max="1023">
+<table>
+<tr>
+<td><input type="checkbox" id="x512y512" disabled="disabled" class="v262144"></td>
+<td><input type="checkbox" id="x256y512" disabled="disabled"  class="v131072"></td>
+<td><input type="checkbox" id="x128y512" disabled="disabled"  class="v65536"></td>
+<td><input type="checkbox" id="x64y512" disabled="disabled"  class="v32768"></td>
+<td><input type="checkbox" id="x32y512" disabled="disabled"  class="v16384"></td>
+<td><input type="checkbox" id="x16y512" disabled="disabled"  class="v8192"></td>
+<td><input type="checkbox" id="x8y512" disabled="disabled"  class="v4096"></td>
+<td><input type="checkbox" id="x4y512" disabled="disabled"  class="v2048"></td>
+<td><input type="checkbox" id="x2y512" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x1y512" disabled="disabled"  class="v512"></td>
+<td>512</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y256" disabled="disabled"  class="v131072"></td>
+<td><input type="checkbox" id="x256y256" disabled="disabled"  class="v65536"></td>
+<td><input type="checkbox" id="x128y256" disabled="disabled"  class="v32768"></td>
+<td><input type="checkbox" id="x64y256" disabled="disabled"  class="v16384"></td>
+<td><input type="checkbox" id="x32y256" disabled="disabled"  class="v8192"></td>
+<td><input type="checkbox" id="x16y256" disabled="disabled"  class="v4096"></td>
+<td><input type="checkbox" id="x8y256" disabled="disabled"  class="v2048"></td>
+<td><input type="checkbox" id="x4y256" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x2y256" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x1y256" disabled="disabled"  class="v256"></td>
+<td>256</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y128" disabled="disabled"  class="v65536"></td>
+<td><input type="checkbox" id="x256y128" disabled="disabled"  class="v32768"></td>
+<td><input type="checkbox" id="x128y128" disabled="disabled"  class="v16384"></td>
+<td><input type="checkbox" id="x64y128" disabled="disabled"  class="v8192"></td>
+<td><input type="checkbox" id="x32y128" disabled="disabled"  class="v4096"></td>
+<td><input type="checkbox" id="x16y128" disabled="disabled"  class="v2048"></td>
+<td><input type="checkbox" id="x8y128" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x4y128" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x2y128" disabled="disabled"  class="v256"></td>
+<td><input type="checkbox" id="x1y128" disabled="disabled"  class="v128"></td>
+<td>128</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y64" disabled="disabled"  class="v32768"></td>
+<td><input type="checkbox" id="x256y64" disabled="disabled"  class="v16384"></td>
+<td><input type="checkbox" id="x128y64" disabled="disabled"  class="v8192"></td>
+<td><input type="checkbox" id="x64y64" disabled="disabled"  class="v4096"></td>
+<td><input type="checkbox" id="x32y64" disabled="disabled"  class="v2048"></td>
+<td><input type="checkbox" id="x16y64" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x8y64" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x4y64" disabled="disabled"  class="v256"></td>
+<td><input type="checkbox" id="x2y64" disabled="disabled"  class="v128"></td>
+<td><input type="checkbox" id="x1y64" disabled="disabled"  class="v64"></td>
+<td>64</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y32" disabled="disabled"  class="v16384"></td>
+<td><input type="checkbox" id="x256y32" disabled="disabled"  class="v8192"></td>
+<td><input type="checkbox" id="x128y32" disabled="disabled"  class="v4096"></td>
+<td><input type="checkbox" id="x64y32" disabled="disabled"  class="v2048"></td>
+<td><input type="checkbox" id="x32y32" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x16y32" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x8y32" disabled="disabled"  class="v256"></td>
+<td><input type="checkbox" id="x4y32" disabled="disabled"  class="v128"></td>
+<td><input type="checkbox" id="x2y32" disabled="disabled"  class="v64"></td>
+<td><input type="checkbox" id="x1y32" disabled="disabled"  class="v32"></td>
+<td>32</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y16" disabled="disabled"  class="v8192"></td>
+<td><input type="checkbox" id="x256y16" disabled="disabled"  class="v4096"></td>
+<td><input type="checkbox" id="x128y16" disabled="disabled"  class="v2048"></td>
+<td><input type="checkbox" id="x64y16" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x32y16" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x16y16" disabled="disabled"  class="v256"></td>
+<td><input type="checkbox" id="x8y16" disabled="disabled"  class="v128"></td>
+<td><input type="checkbox" id="x4y16" disabled="disabled"  class="v64"></td>
+<td><input type="checkbox" id="x2y16" disabled="disabled"  class="v32"></td>
+<td><input type="checkbox" id="x1y16" disabled="disabled"  class="v16"></td>
+<td>16</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y8" disabled="disabled"  class="v4096"></td>
+<td><input type="checkbox" id="x256y8" disabled="disabled"  class="v2048"></td>
+<td><input type="checkbox" id="x128y8" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x64y8" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x32y8" disabled="disabled"  class="v256"></td>
+<td><input type="checkbox" id="x16y8" disabled="disabled"  class="v128"></td>
+<td><input type="checkbox" id="x8y8" disabled="disabled"  class="v64"></td>
+<td><input type="checkbox" id="x4y8" disabled="disabled"  class="v32"></td>
+<td><input type="checkbox" id="x2y8" disabled="disabled"  class="v16"></td>
+<td><input type="checkbox" id="x1y8" disabled="disabled"  class="v8"></td>
+<td>8</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y4" disabled="disabled"  class="v2048"></td>
+<td><input type="checkbox" id="x256y4" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x128y4" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x64y4" disabled="disabled"  class="v256"></td>
+<td><input type="checkbox" id="x32y4" disabled="disabled"  class="v128"></td>
+<td><input type="checkbox" id="x16y4" disabled="disabled"  class="v64"></td>
+<td><input type="checkbox" id="x8y4" disabled="disabled"  class="v32"></td>
+<td><input type="checkbox" id="x4y4" disabled="disabled"  class="v16"></td>
+<td><input type="checkbox" id="x2y4" disabled="disabled"  class="v8"></td>
+<td><input type="checkbox" id="x1y4" disabled="disabled"  class="v4"></td>
+<td>4</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y2" disabled="disabled"  class="v1024"></td>
+<td><input type="checkbox" id="x256y2" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x128y2" disabled="disabled"  class="v256"></td>
+<td><input type="checkbox" id="x64y2" disabled="disabled"  class="v128"></td>
+<td><input type="checkbox" id="x32y2" disabled="disabled"  class="v64"></td>
+<td><input type="checkbox" id="x16y2" disabled="disabled"  class="v32"></td>
+<td><input type="checkbox" id="x8y2" disabled="disabled"  class="v16"></td>
+<td><input type="checkbox" id="x4y2" disabled="disabled"  class="v8"></td>
+<td><input type="checkbox" id="x2y2" disabled="disabled"  class="v4"></td>
+<td><input type="checkbox" id="x1y2" disabled="disabled"  class="v2"></td>
+<td>2</td>
+</tr>
+<tr>
+<td><input type="checkbox" id="x512y1" disabled="disabled"  class="v512"></td>
+<td><input type="checkbox" id="x256y1" disabled="disabled"  class="v256"></td>
+<td><input type="checkbox" id="x128y1" disabled="disabled"  class="v128"></td>
+<td><input type="checkbox" id="x64y1" disabled="disabled"  class="v64"></td>
+<td><input type="checkbox" id="x32y1" disabled="disabled"  class="v32"></td>
+<td><input type="checkbox" id="x16y1" disabled="disabled"  class="v16"></td>
+<td><input type="checkbox" id="x8y1" disabled="disabled"  class="v8"></td>
+<td><input type="checkbox" id="x4y1" disabled="disabled"  class="v4"></td>
+<td><input type="checkbox" id="x2y1" disabled="disabled"  class="v2"></td>
+<td><input type="checkbox" id="x1y1" disabled="disabled" class="v1"></td>
+<td>1</td>
+</tr>
+<tr><td>512</td><td>256</td><td>128</td><td>64</td>
+<td>32</td><td>16</td><td>8</td><td>4</td><td>2</td>
+<td>1</td></tr>
+</table>
+</form>
+<p>Le carré de <code id="b1">0</code> est <code id="valeur">0</code>. 
+</p>
+<script>
+t = [0,0,0,0,0,0,0,0,0,0]
+function poseProduit(){
+    for (x=1,i=0;x<=512;x*=2,i++){
+        for (y=1,j=0;y<=512;y*=2,j++){
+            if (t[i] && t[j]) {
+                document.getElementById("x"+x+"y"+y).checked = true;
+                } else {
+                document.getElementById("x"+x+"y"+y).checked = false;
+                }
+        }
+    }
+}
+function maj(){
+    let total = 0
+    let t1 = document.getElementById("racine").value
+    let t2 = t1
+    for (var i=0;i<=9;t[i++]=t2%2,t2=Math.floor(t2/2));
+    poseProduit()
+    for (var p=1; p<=262144; p*=2) {
+        for (e of document.getElementsByClassName("v"+p)) {if (e.checked) { total += p}}
+    }
+document.getElementById("valeur").innerHTML = total
+document.getElementById("b1").innerHTML = t1
+}
+</script>
+
+</body>
+</html>
